@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Landing Page</title>
+
+  <!--Embedded CSS-->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      background-color: transparent;
+      transition: background 0.3s ease;
+      z-index: 999;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00f0ff;
+    }
+
+    .scrolled {
+      background-color: #168560;
+    }
+
+    section {
+      padding-top: 100px;
+      height: 100vh;
+      background-color: #690e0e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        right: 10%;
+        top: 70px;
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--Navigation Bar-->
+  <header id="navbar">
+    <nav class="nav-container">
+      <div class="logo">MyBrand</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--Sections-->
+  <section id="home"><h1>Welcome to My Landing Page</h1></section>
+  <section id="about"><h2>About Us</h2></section>
+  <section id="services"><h2>Our Services</h2></section>
+  <section id="contact"><h2>Contact Us</h2></section>
+
+  <!--JavaScript-->
+  <script>
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
